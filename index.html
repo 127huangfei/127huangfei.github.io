@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>myLove❤</title>
+		<title>❤Memory❤</title>
 		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
 		<script src="https://www.layuicdn.com/layui/layui.js"></script>
@@ -61,12 +61,12 @@
 						sTime = "2019/11/24 0:0:0";
 					}
 					let day1 = new Date(sTime).getTime();
-					let iDays = (nTime.getTime() - day1) / (1000 * 60 * 60 * 24); //天数
+					let iDays = parseInt((nTime.getTime() - day1) / (1000 * 60 * 60 * 24)); //天数
 					let iHours = (nTime.getTime() - day1) / (1000 * 60 * 60); //小时数
 					let iMinutes = (nTime.getTime() - day1) / (1000 * 60); //分钟数
-					$("#sTime").html("开始时间: " + "2021-5-15 12:00:00");
+					$("#sTime").html("开始时间: " + "2021-05-15 12:00:00");
 					$("#nTime").html("当前时间: " + formartDate(nTime));
-					$("#dDays").html("认识天数: " + iDays.toFixed(13) + "天");
+					$("#dDays").html("认识天数: " + iDays.toFixed(0) + "天");
 					//$("#dHour").html("相爱小时: " + iHours.toFixed(10) + "小时");
 					//$("#dMinutes").html("相爱分钟: " + iMinutes.toFixed(8) + "分钟");
 					// return iHours
@@ -80,6 +80,12 @@
 					var mHours = mTime.getHours();
 					var mMinutes = mTime.getMinutes();
 					var mSeconds = mTime.getSeconds();
+					if (mMonth < 10) {
+						mMonth = "0" + mMonth
+					}
+					if (mDate < 10) {
+						mDate = "0" + mDate
+					}
 					if (mMinutes < 10) {
 						mMinutes = "0" + mMinutes
 					}
@@ -157,9 +163,10 @@
 
 			#author {
 				position: absolute;
-				left: 75%;
-				top: 75%;
+				left: 80%;
+				top: 80%;
 				text-align: center;
+				font-size: 18px;
 			}
 		</style>
 	</head>
@@ -178,7 +185,8 @@
 			<div class="lTime">我欲和君一两聊</div>
 			<div class="lTime">爱汝风标真绝俗</div>
 			<div class="lTime">小却车尘行复止</div>
-			<div class="lTime2">梅花开早今已满</div>
+			<div class="lTime">梅花开早今已满</div>
+			<div id="dMinutes" class="lTime"></div><br />
 			<div class="loveName2">❤思梅❤</div>
 			<div class="lTime">申城暮雨燕飞低</div>
 			<div class="lTime">浦江日夜流千里</div>
@@ -202,7 +210,7 @@
 		</div>
 		<footer id="author">
 			<p>FLY</p>
-			<p>爱你的每一天</p>
+			<p>爱梅的每一天</p>
 		</footer>
 	</body>
 </html>
